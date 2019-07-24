@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-Monument_Scann-862CC1E7-A75C-42A5-817A-F5A1B4D3B3D5</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20190613102810_chekingSomthing.cs" />
+    <Compile Remove="Data\Migrations\20190613102810_chekingSomthing.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190618150325_Try8.cs" />
+    <Compile Remove="Data\Migrations\20190618150325_Try8.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190618150610_Try9.cs" />
+    <Compile Remove="Data\Migrations\20190618150610_Try9.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190618153025_try11.cs" />
+    <Compile Remove="Data\Migrations\20190618153025_try11.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190618153306_try12.cs" />
+    <Compile Remove="Data\Migrations\20190618153306_try12.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190618162255_Try16.cs" />
+    <Compile Remove="Data\Migrations\20190618162255_Try16.Designer.cs" />
+    <Compile Remove="Data\Migrations\20190620125942_asas.cs" />
+    <Compile Remove="Data\Migrations\20190620125942_asas.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.5" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Identity\Services\" />
+  </ItemGroup>
+
+</Project>

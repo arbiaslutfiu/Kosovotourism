@@ -1,0 +1,43 @@
+﻿
+@model IndexViewModel
+@{
+    ViewData["Title"] = "Search";
+}
+
+<div class="container pt-5 mt-5">
+    <div class="row justify-content-center">
+        @foreach (var Monumentet in Model.Monumente)
+        {
+            <div class="card m-2   shadow" style="width: 18rem;">
+                <img class="card-img-top" src="~/images/@Monumentet.Image" height="300px" alt="images">
+                <div class="card-body">
+                    <h5 class="card-title"> <i class="font-weight-bold">@Monumentet.Title</i>   </h5><p>@Monumentet.Citys</p>
+                    <p class="card-text">Kosovo ka shum vende te tilla siq eshte edhe <i class="font-weight-bolder">"@Monumentet.Title"</i></p>
+                    <a asp-action="Monumentet" asp-route-id="@Monumentet.Id" class="btn btn-primary">Shiqo me shume</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="container pt-5 mt-5">
+    <div class="row justify-content-center">
+        @foreach (var touristspot in Model.ToursitSpot)
+        {
+            <div class="card m-2   shadow" style="width: 18rem;">
+                <img class="card-img-top" src="~/images/@touristspot.Image" height="300px" alt="images">
+                <div class="card-body">
+                    <h5 class="card-title"> <i class="font-weight-bold">@touristspot.Title</i>   </h5><p>@touristspot.Citys</p>
+                    <p class="card-text">Kosovo ka shum vende te tilla siq eshte edhe <i class="font-weight-bolder">"@touristspot.Title"</i></p>
+                    <a asp-action="Monumentet" asp-route-id="@touristspot.Id" class="btn btn-primary">Shiqo me shume</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="container text-center pt-4">
+    <a asp-controller="Home" asp-action="AllMonument" class="btn btn-outline-danger">All Monument</a>
+</div>
+
+<h1 class="m-5 p-5"></h1>
+
+

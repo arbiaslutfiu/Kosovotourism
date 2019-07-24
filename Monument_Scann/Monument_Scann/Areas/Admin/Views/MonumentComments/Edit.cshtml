@@ -1,0 +1,42 @@
+﻿@model Monument_Scann.Areas.Admin.Models.MonumentComments
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>MonumentComments</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comented" class="control-label"></label>
+                <input asp-for="Comented" class="form-control" />
+                <span asp-validation-for="Comented" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonumentId" class="control-label"></label>
+                <select asp-for="MonumentId" class="form-control" asp-items="ViewBag.MonumentId"></select>
+                <span asp-validation-for="MonumentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

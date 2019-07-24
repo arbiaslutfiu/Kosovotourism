@@ -1,0 +1,85 @@
+﻿@model ComentAdnMonument;
+@{
+    ViewData["Title"] = "Monumentet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="#" id="return-to-top"><i class="icon-chevron-up"></i></a>
+<div class="container">
+    @if (Model.Monumente.Image != null)
+    {
+        <img src="~/images/@Model.Monumente.Image" class="" width="100%" height="600px" alt="FOTOTOOTOTO" />
+    }
+    else
+    {
+        @: No image
+    }
+
+
+    <div class="d-flex border-bottom  border-dark mb-3">
+        <div class="mr-auto p-2">
+            <h1>
+                @Html.DisplayFor(Model => Model.Monumente.Title)
+            </h1>
+            <i class="text-black-50">Lokacioni : @Html.DisplayFor(Model => Model.Monumente.Citys)</i>
+        </div>
+        <div class="p-2">
+            @if (User.Identity.IsAuthenticated)
+            {
+                @if (ViewBag.KaBaLike == true)
+                {
+                    <a asp-action="LikedMOn" asp-route-Id="@Model.MonumentId" class="btn btn-outline-danger mb-3">unLike  👎</a>
+                }
+                else
+                {
+                    <a asp-action="LikedMOn" asp-route-Id="@Model.MonumentId" class="btn btn-outline-primary mb-3">Like  👍</a>
+                }
+            }
+            else
+            {
+                <h3>Likes :</h3>
+            }
+        </div>
+        <div class="p-2"><h3 class="align-content-end"> @Html.DisplayFor(Model => Model.Monumente.NrLike)</h3> </div>
+    </div>
+    <h4 class="text-center pt-2">History</h4>
+    <p class="border-bottom border-dark pb-5">
+        - @Html.DisplayFor(Model => Model.Monumente.History)
+    </p>
+    @if (User.Identity.IsAuthenticated)
+    {
+    <form asp-action="CreateComent" class="mb-3">
+        <input type="hidden" asp-for="MonumentId" />
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" asp-for="Comented" placeholder="Komento per kete mrekulli te Kosoves..." />
+            <div class="input-group-append">
+                <input type="submit" value="Komento" class="btn btn-outline-primary" />
+            </div>
+        </div>
+    </form>
+    }
+    else
+    {
+        <h5 class="text-center pt-5 pb-5 "> You need to <a class=" text-info" asp-area="Identity" asp-page="/Account/Login">Login</a> or <a class="text-info" asp-page="/Account/Register" asp-area="Identity">SignUp</a> to Comment or Like !</h5>
+    }
+
+
+    <table class="table table-hover rounded" style="overflow-y: scroll;">
+        <thead class="text-center thead-dark ">
+            <tr>
+                <th> Komentet</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ss in Model.MonumentComments)
+            {
+                <tr>
+                    <td><i class="text-black-50"> @Html.DisplayFor(modelItem => ss.UserName) </i><br />
+                        @Html.DisplayFor(modelItem => ss.Comented)<br />
+                        <i class="text-black-50">@Html.DisplayFor(modelItem => ss.kohadergimit)</i>
+                    </td>                    
+                </tr>}
+        </tbody>
+    </table>
+    <a asp-action="AllMonument" class="btn btn-info">< Back to List</a>
+
+</div>

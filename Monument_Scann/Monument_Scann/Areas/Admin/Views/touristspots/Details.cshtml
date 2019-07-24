@@ -1,0 +1,55 @@
+﻿@model Monument_Scann.Areas.Admin.Models.touristspot
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>touristspot</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.History)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.History)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NrLike)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NrLike)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Citys)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Citys)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd>
+            @if (Model.Image != null)
+            {
+                <img src="~/images/@Model.Image" width="300" />
+            }
+            else
+            {
+                @: No image
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

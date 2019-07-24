@@ -1,0 +1,48 @@
+﻿@model Monument_Scann.Areas.Admin.Models.touristspot
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>touristspot</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.History)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.History)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NrLike)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NrLike)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Citys)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Citys)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

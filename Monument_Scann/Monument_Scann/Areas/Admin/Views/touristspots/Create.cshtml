@@ -1,0 +1,54 @@
+﻿@model Monument_Scann.Areas.Admin.Models.touristspot
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>touristspot</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="History" class="control-label"></label>
+                <input asp-for="History" class="form-control" />
+                <span asp-validation-for="History" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NrLike" class="control-label"></label>
+                <input asp-for="NrLike" value="0" class="form-control" disabled="disabled" />
+                <span asp-validation-for="NrLike" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Citys" class="control-label"></label>
+                <select asp-for="Citys" class="form-control" asp-items="Html.GetEnumSelectList<City>()">
+                    <option></option>
+                </select>
+                <span asp-validation-for="Citys" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Image</label>
+                <input class="form-control" type="file" name="imageFile" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
